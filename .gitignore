@@ -1,5 +1,5 @@
-libpyeoskit.a
-libpyeoskit.h
+libpyflonkit.a
+libpyflonkit.h
 
 *.abi
 *.wasm

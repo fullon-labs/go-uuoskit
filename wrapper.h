@@ -9,9 +9,9 @@ typedef char *(*fn_malloc)(uint64_t size);
     #define __SIZE_TYPE__ void*
     #define _Bool char
     #define _Complex
-    #include "pyeoskit.h"
+    #include "pyflonkit.h"
 #else
-    #include "libpyeoskit.h"
+    #include "libpyflonkit.h"
 #endif
 
 #endif//__WRAPPER_H_
