@@ -29,7 +29,7 @@ import (
 	"unsafe"
 
 	traceable_errors "github.com/go-errors/errors"
-	secp256k1 "github.com/uuosio/go-secp256k1"
+	secp256k1 "github.com/fullon-labs/go-secp256k1"
 	"github.com/uuosio/go-uuoskit/uuoskit"
 )
 
@@ -595,9 +595,9 @@ func crypto_get_public_key_(privateKey *C.char, eosPub C.int) *C.char {
 	pub := _privateKey.GetPublicKey()
 
 	if eosPub == 0 {
-		return renderData(pub.String())
+		return renderData(pub.StringK1())
 	} else {
-		return renderData(pub.StringEOS())
+		return renderData(pub.String())
 	}
 }
 
@@ -619,9 +619,9 @@ func crypto_recover_key_(digest *C.char, signature *C.char, format C.int) *C.cha
 	}
 
 	if format == 1 {
-		return renderData(pub.StringEOS())
-	} else {
 		return renderData(pub.String())
+	} else {
+		return renderData(pub.StringK1())
 	}
 }
 
@@ -638,9 +638,9 @@ func CreateKey(oldPubKeyFormat bool) map[string]string {
 	ret := make(map[string]string)
 	ret["private"] = _priv.String()
 	if oldPubKeyFormat {
-		ret["public"] = _priv.GetPublicKey().StringEOS()
-	} else {
 		ret["public"] = _priv.GetPublicKey().String()
+	} else {
+		ret["public"] = _priv.GetPublicKey().StringK1()
 	}
 	return ret
 }

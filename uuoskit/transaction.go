@@ -7,7 +7,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 
-	secp256k1 "github.com/uuosio/go-secp256k1"
+	secp256k1 "github.com/fullon-labs/go-secp256k1"
 )
 
 type TransactionExtension struct {
